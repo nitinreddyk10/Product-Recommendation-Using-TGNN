@@ -1,0 +1,1 @@
+MERGE (a:User {id: ' A1B1ZOVL67OXVP', profile_name:' Chacham'}) MERGE (b:Item {id: ' B000A8OBOI'}) MERGE (a)-[:REVIEWED {review_text:' Chacham', feature: [126.0, 101.0, 0.7698412698412699, 0.0, 0.023809523809523808, 0.1984126984126984, 0.031746031746031744, 30.0, 30.0, 5.0, 3.4, 0.0, 0.0, 3.0, 1.0, 10.0, 0.0, 0.579, 0.421, 0.92], review_time:1342137600, review_score:5.0}]->(b);
