@@ -30,9 +30,6 @@ but after several years of researching signals in graphs **graph neural networks
 Afterwards, **GNNs** expanded and started adapting **inductive** learning methods, which helped with their development on dynamic graphs - 
 **[Temporal Graph Networks (TGN)](https://towardsdatascience.com/temporal-graph-networks-ab8f327f2efe)**.
 
-Here is a schematic view of how **TGN** works:
-![TGN](images/tgn.png)
-
 As you can see, the process uses batch processing. In this image, we presented how the edge prediction task works
 with **interaction events** as the main building block of **TGN**. Interaction event is an another name for the creation of an edge
 between two nodes. After a batch is full, we extract features from nodes and edges. From those features and old memory, we 
@@ -44,16 +41,11 @@ The other options are **mean** or **LSTM**. Now, the memory needs to be updated 
 The final step includes the calculation of embeddings from the updated memory and *node and edge* features which represent the initial node embedding. This part of the embedding calculation is not simple - for every node, a new 
 **computation graph** needs to be made because it depends on when the said node last had an interaction since it doesn't have access to nodes from the future. To check how we implemented it, jump to [our GitHub site](https://github.com/memgraph/mage).
 
-![Dataset](images/temporal-computation-graph.png)
-
 You can learn more about how **TGN** works from [learning materials](#learning-materials) down below.
 
 ## Dataset visualized
 We will start exploring **TGN** with our **Amazon product** dataset looks. We have used **Memgraph Lab** to create
 this visualization. Memgraph Lab comes in **Memgraph Platform** and allows you to create custom styles ([docs](https://memgraph.com/docs/memgraph-lab/)**).
-
-![Dataset](images/amazon-user-item-dataset.png)
-
 
 ## About dataset
 All the information about the dataset can be found at the following **[link](http://snap.stanford.edu/data/amazon/productGraph/)**.
