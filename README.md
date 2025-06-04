@@ -75,29 +75,7 @@ and links (also viewed/also bought graphs).
 4. Now use`./public/main.py` to create cypher queries. Now we can start exploring **TGN** as part of **Jupyter Notebook**.
 5. Open **Jupyter Lab** and run the cells. **Memgraph** should be up and running in order for all cells to be successfully run.
 
-## Results visualized
-In our experiments we used a dataset of around 11500 edges. For that kind of a dataset we don't need that many epochs to achieve pretty good results.
-![TGN](images/amazon-user-item-train-eval.png)
-
-Afterwards we can predict new edges with following query:
-```
-MATCH (n:User)
-        WITH n
-        LIMIT 1
-        MATCH (m:Item)
-        OPTIONAL MATCH (n)-[r]->(m)
-        WHERE r is null
-        CALL tgn.predict_link_score(n,m) YIELD prediction
-        WITH n,m, prediction
-        WHERE prediction>0.7
-        MERGE (n)-[:PREDICTED_REVIEW {likelihood:prediction}]->(m);
-```
-
-And we get the following predicted edges.
-![prediction](images/tgn-prediction.png)
-
 ## Learning materials
 If you wish to start exploring about **TGN**, you can read one of the following:
-* go to our [page](https://memgraph.com/docs/mage/query-modules/python/tgn) 
 * read a paper about **[TGN](https://arxiv.org/pdf/2006.10637.pdf)**
 * watch a video explanation about **[TGN](https://www.youtube.com/watch?v=0tw66aTfWaI&t=1s)**
